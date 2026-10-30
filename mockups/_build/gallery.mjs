@@ -45,8 +45,8 @@ const gallery = `<!doctype html>
 <main class="board">
   <section class="dir-head">
     <p class="dir-kicker"><i></i>Rendered mockups</p>
-    <h1 class="dir-name">36 images</h1>
-    <p class="dir-premise">Six directions, six screens each, rendered from the same interface markup. Every image uses the same sample vault so you compare design, not data.</p>
+    <h1 class="dir-name">${dirs.length * 6} images</h1>
+    <p class="dir-premise">Twelve directions, six screens each, rendered from the same interface markup. Every image uses the same sample vault so you compare design, not data.</p>
   </section>
   ${dirs
     .map(
@@ -77,12 +77,13 @@ const gallery = `<!doctype html>
 
 writeFileSync(new URL("../gallery.html", import.meta.url), gallery);
 
-const sheet = `<!doctype html>
+const sheetFor = (list, title, note, out) => {
+  const html = `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hasp, six directions at a glance</title>
+<title>${title}</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/board.css">
 <style>
@@ -109,14 +110,14 @@ const sheet = `<!doctype html>
 <body>
 <main class="sheet">
   <div class="sheet-head">
-    <h1>Hasp, six directions</h1>
-    <p>Same product, same sample vault, six visual systems. Full screens at mockups/gallery.html.</p>
+    <h1>${title}</h1>
+    <p>${note}</p>
   </div>
-  ${dirs
+  ${list
     .map(
       (d) => `<section class="row">
     <div>
-      <span class="num">${d.id.slice(1)} of 06</span>
+      <span class="num">${d.trend ? d.trend : "Light set, " + d.id.slice(1)}</span>
       <h2>${d.name}</h2>
       <p class="prem">${d.premiseShort}</p>
       <div class="sw">${d.palette.map(([hex]) => `<i style="background:${hex}"></i>`).join("")}</div>
@@ -134,5 +135,12 @@ const sheet = `<!doctype html>
 </main>
 </body>
 </html>`;
-writeFileSync(new URL("../sheet.html", import.meta.url), sheet);
-console.log("wrote gallery.html and sheet.html");
+  writeFileSync(new URL(`../${out}`, import.meta.url), html);
+};
+
+const light = dirs.filter((d) => !d.dark);
+const dark = dirs.filter((d) => d.dark);
+
+sheetFor(light, "Hasp, six light directions", "Same product, same sample vault, six visual systems. Full screens at mockups/gallery.html.", "sheet.html");
+sheetFor(dark, "Hasp, six dark directions", "Neumorphism, neubrutalism, retro futurism, Bauhaus, glassmorphism, claymorphism. Full screens at mockups/gallery.html.", "sheet-dark.html");
+console.log("wrote gallery.html, sheet.html, sheet-dark.html");

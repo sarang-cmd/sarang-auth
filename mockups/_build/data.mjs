@@ -127,5 +127,144 @@ export const dirs = [
     signature:
       "Rows sit as cards on the page. Titles use one family at three weights. The accent stays on actions and one-time codes. Everything else is ink on warm paper.",
   },
+
+  {
+    id: "d7",
+    slug: "07-nightshift",
+    name: "Nightshift",
+    trend: "Neumorphism",
+    dark: true,
+    premiseShort: "Neumorphism. Embossed controls, no visible borders, cool blue.",
+    typeShort: "Instrument Sans, soft shadows",
+    premise:
+      "Neumorphism at night. Controls sit in the surface instead of on top of it, so the vault feels like a machined panel rather than a web page.",
+    palette: [
+      ["#14161A", "night"],
+      ["#171A1F", "panel"],
+      ["#E8EAED", "text"],
+      ["#7FA6D8", "cool blue"],
+      ["#6FA98B", "healthy"],
+    ],
+    type: ["Instrument Sans", "One family, light shadows carry the hierarchy."],
+    shape: ["9 to 12px radii", "Paired inner and outer shadows, no visible borders."],
+    wins: ["Long sessions", "People who want the interface to recede."],
+    signature:
+      "Surfaces carry a light top edge and a dark drop. Fields look pressed into the panel. The accent appears on selection and focus only.",
+  },
+  {
+    id: "d8",
+    slug: "08-brut",
+    name: "Brut",
+    trend: "Neubrutalism",
+    dark: true,
+    premiseShort: "Neubrutalism. Heavy outlines, hard shadows, vermilion.",
+    typeShort: "Archivo 700, zero radius",
+    premise:
+      "Neubrutalism with the lights off. Heavy outlines, hard offset shadows, one vermilion block of colour. Nothing is subtle.",
+    palette: [
+      ["#0A0A0A", "black"],
+      ["#111111", "panel"],
+      ["#F4F1EA", "bone"],
+      ["#E2542B", "vermilion"],
+      ["#9A958A", "muted"],
+    ],
+    type: ["Archivo", "Heavy weights, tight tracking, no optical tricks."],
+    shape: ["Zero radius", "2px outlines, solid ink header, hard offset shadows."],
+    wins: ["A launch page", "Developers who distrust polished marketing."],
+    signature:
+      "Every control carries a 2px bone outline. The primary button is vermilion with a black offset. No blur appears anywhere in the system.",
+  },
+  {
+    id: "d9",
+    slug: "09-retrograde",
+    name: "Retrograde",
+    trend: "Retro futurism",
+    dark: true,
+    premiseShort: "Retro futurism, warm. Bone text, amber readouts, mono figures.",
+    typeShort: "Archivo and Plex Mono",
+    premise:
+      "Retro futurism, warm instead of neon. Bone text, amber readouts, mono figures. It looks like a terminal a careful engineer would keep.",
+    palette: [
+      ["#12100E", "soot"],
+      ["#191614", "panel"],
+      ["#EDE3CF", "bone"],
+      ["#E0A33C", "amber"],
+      ["#7FA38C", "sage"],
+    ],
+    type: ["Archivo and IBM Plex Mono", "Mono for timestamps, counts and labels."],
+    shape: ["2px corners", "Thin amber rules, square tags, no rounding."],
+    wins: ["Terminal users", "Vaults full of infrastructure keys."],
+    signature:
+      "Timestamps and counts sit in mono. Selected rows get a 2px amber edge. The palette stays warm, which keeps the dark screen from feeling clinical.",
+  },
+  {
+    id: "d10",
+    slug: "10-weimar",
+    name: "Weimar",
+    trend: "Bauhaus",
+    dark: true,
+    premiseShort: "Bauhaus at night. Three primaries used as punctuation.",
+    typeShort: "Sora, geometric marks",
+    premise:
+      "Bauhaus at night. Primary colours used as punctuation, a hard grid, and geometric marks. Serious, printed, a little severe.",
+    palette: [
+      ["#0C0C0C", "black"],
+      ["#121212", "panel"],
+      ["#F2EFE8", "chalk"],
+      ["#D23B2A", "red"],
+      ["#E3B22B", "yellow"],
+    ],
+    type: ["Sora", "Geometric sans, tight display tracking."],
+    shape: ["No radius", "2px rules, square tiles, a 4px red bar for selection."],
+    wins: ["A print-like identity", "Product pages with strong art direction."],
+    signature:
+      "The mark is a yellow shape on black. Selection is a 4px red bar. Blue appears on focus only. Three primaries, used like punctuation.",
+  },
+  {
+    id: "d11",
+    slug: "11-glasshouse",
+    name: "Glasshouse",
+    trend: "Glassmorphism",
+    dark: true,
+    premiseShort: "Glassmorphism, quiet. Translucent panels, hairline light edges.",
+    typeShort: "Public Sans, translucent panels",
+    premise:
+      "Glassmorphism, kept quiet. Panels float a few pixels above a dark slate ground, with a single hairline of light on every edge.",
+    palette: [
+      ["#0D1218", "slate"],
+      ["#16202B", "panel"],
+      ["#EEF3F7", "light"],
+      ["#7FB2E5", "blue"],
+      ["#74C0A6", "mint"],
+    ],
+    type: ["Public Sans", "Neutral interface type, no display face."],
+    shape: ["14 to 18px radii", "5 percent white fills, 1px borders, one deep shadow."],
+    wins: ["Media heavy marketing", "Depth without noise."],
+    signature:
+      "Panels use a low white fill with blur behind them. Borders carry the edge, not shadows. The quick bar is the only strongly elevated object.",
+  },
+  {
+    id: "d12",
+    slug: "12-clay",
+    name: "Clay",
+    trend: "Claymorphism",
+    dark: true,
+    premiseShort: "Claymorphism at night. Thick soft forms, sage accent.",
+    typeShort: "Sora, inflated cards",
+    premise:
+      "Claymorphism in a dark room. Thick, soft, rounded forms with a sage accent. Friendly for a tool that holds serious things.",
+    palette: [
+      ["#171C1B", "moss"],
+      ["#1F2523", "panel"],
+      ["#EAEDE6", "text"],
+      ["#A8C08F", "sage"],
+      ["#8DC4A0", "healthy"],
+    ],
+    type: ["Sora", "One family, heavy on shape rather than weight."],
+    shape: ["14 to 20px radii", "Inflated cards, inner top light, soft drop."],
+    wins: ["Mobile first", "Households and mixed skill teams."],
+    signature:
+      "Every card has a light top edge and a soft drop, which reads as clay rather than glass. Rows sit as separate objects with real gaps.",
+  },
 ];
 

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hasp, six dark directions</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/board.css">
+<style>
+  body { background: #e8e8e4; }
+  .sheet { width: 1600px; padding: 44px 48px 52px; }
+  .sheet-head { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 18px; border-bottom: 1px solid var(--b-line); }
+  .sheet-head h1 { margin: 0; font-size: 34px; letter-spacing: -0.035em; font-weight: 600; }
+  .sheet-head p { margin: 0; font-size: 13px; color: var(--b-mut); max-width: 46ch; text-align: right; line-height: 1.45; }
+  .row { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 28px; padding: 26px 0; border-bottom: 1px solid var(--b-line); align-items: start; }
+  .row h2 { margin: 0; font-size: 22px; letter-spacing: -0.02em; font-weight: 600; }
+  .row .num { font-size: 12px; color: var(--b-mut); }
+  .row .prem { margin: 8px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--b-ink-2); }
+  .sw { display: flex; gap: 4px; margin-top: 12px; }
+  .sw i { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(0,0,0,.1); }
+  .row .type { margin: 10px 0 0; font-size: 11px; color: var(--b-mut); }
+  .shots { display: flex; gap: 14px; align-items: flex-start; }
+  .shots img { display: block; border: 1px solid var(--b-line); }
+  .s-dash { width: 560px; }
+  .s-pop { width: 118px; }
+  .s-mob { width: 122px; }
+  .s-bar { width: 300px; }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <div class="sheet-head">
+    <h1>Hasp, six dark directions</h1>
+    <p>Neumorphism, neubrutalism, retro futurism, Bauhaus, glassmorphism, claymorphism. Full screens at mockups/gallery.html.</p>
+  </div>
+  <section class="row">
+    <div>
+      <span class="num">Neumorphism</span>
+      <h2>Nightshift</h2>
+      <p class="prem">Neumorphism. Embossed controls, no visible borders, cool blue.</p>
+      <div class="sw"><i style="background:#14161A"></i><i style="background:#171A1F"></i><i style="background:#E8EAED"></i><i style="background:#7FA6D8"></i><i style="background:#6FA98B"></i></div>
+      <p class="type">Instrument Sans, soft shadows</p>
+    </div>
+    <div class="shots">
+      <img class="s-dash" src="png/d7-dashboard.png" alt="Dashboard, Nightshift direction">
+      <img class="s-pop" src="png/d7-popup.png" alt="Popup, Nightshift direction">
+      <img class="s-mob" src="png/d7-mobile.png" alt="Mobile, Nightshift direction">
+      <img class="s-bar" src="png/d7-bar.png" alt="Quick bar, Nightshift direction">
+    </div>
+  </section><section class="row">
+    <div>
+      <span class="num">Neubrutalism</span>
+      <h2>Brut</h2>
+      <p class="prem">Neubrutalism. Heavy outlines, hard shadows, vermilion.</p>
+      <div class="sw"><i style="background:#0A0A0A"></i><i style="background:#111111"></i><i style="background:#F4F1EA"></i><i style="background:#E2542B"></i><i style="background:#9A958A"></i></div>
+      <p class="type">Archivo 700, zero radius</p>
+    </div>
+    <div class="shots">
+      <img class="s-dash" src="png/d8-dashboard.png" alt="Dashboard, Brut direction">
+      <img class="s-pop" src="png/d8-popup.png" alt="Popup, Brut direction">
+      <img class="s-mob" src="png/d8-mobile.png" alt="Mobile, Brut direction">
+      <img class="s-bar" src="png/d8-bar.png" alt="Quick bar, Brut direction">
+    </div>
+  </section><section class="row">
+    <div>
+      <span class="num">Retro futurism</span>
+      <h2>Retrograde</h2>
+      <p class="prem">Retro futurism, warm. Bone text, amber readouts, mono figures.</p>
+      <div class="sw"><i style="background:#12100E"></i><i style="background:#191614"></i><i style="background:#EDE3CF"></i><i style="background:#E0A33C"></i><i style="background:#7FA38C"></i></div>
+      <p class="type">Archivo and Plex Mono</p>
+    </div>
+    <div class="shots">
+      <img class="s-dash" src="png/d9-dashboard.png" alt="Dashboard, Retrograde direction">
+      <img class="s-pop" src="png/d9-popup.png" alt="Popup, Retrograde direction">
+      <img class="s-mob" src="png/d9-mobile.png" alt="Mobile, Retrograde direction">
+      <img class="s-bar" src="png/d9-bar.png" alt="Quick bar, Retrograde direction">
+    </div>
+  </section><section class="row">
+    <div>
+      <span class="num">Bauhaus</span>
+      <h2>Weimar</h2>
+      <p class="prem">Bauhaus at night. Three primaries used as punctuation.</p>
+      <div class="sw"><i style="background:#0C0C0C"></i><i style="background:#121212"></i><i style="background:#F2EFE8"></i><i style="background:#D23B2A"></i><i style="background:#E3B22B"></i></div>
+      <p class="type">Sora, geometric marks</p>
+    </div>
+    <div class="shots">
+      <img class="s-dash" src="png/d10-dashboard.png" alt="Dashboard, Weimar direction">
+      <img class="s-pop" src="png/d10-popup.png" alt="Popup, Weimar direction">
+      <img class="s-mob" src="png/d10-mobile.png" alt="Mobile, Weimar direction">
+      <img class="s-bar" src="png/d10-bar.png" alt="Quick bar, Weimar direction">
+    </div>
+  </section><section class="row">
+    <div>
+      <span class="num">Glassmorphism</span>
+      <h2>Glasshouse</h2>
+      <p class="prem">Glassmorphism, quiet. Translucent panels, hairline light edges.</p>
+      <div class="sw"><i style="background:#0D1218"></i><i style="background:#16202B"></i><i style="background:#EEF3F7"></i><i style="background:#7FB2E5"></i><i style="background:#74C0A6"></i></div>
+      <p class="type">Public Sans, translucent panels</p>
+    </div>
+    <div class="shots">
+      <img class="s-dash" src="png/d11-dashboard.png" alt="Dashboard, Glasshouse direction">
+      <img class="s-pop" src="png/d11-popup.png" alt="Popup, Glasshouse direction">
+      <img class="s-mob" src="png/d11-mobile.png" alt="Mobile, Glasshouse direction">
+      <img class="s-bar" src="png/d11-bar.png" alt="Quick bar, Glasshouse direction">
+    </div>
+  </section><section class="row">
+    <div>
+      <span class="num">Claymorphism</span>
+      <h2>Clay</h2>
+      <p class="prem">Claymorphism at night. Thick soft forms, sage accent.</p>
+      <div class="sw"><i style="background:#171C1B"></i><i style="background:#1F2523"></i><i style="background:#EAEDE6"></i><i style="background:#A8C08F"></i><i style="background:#8DC4A0"></i></div>
+      <p class="type">Sora, inflated cards</p>
+    </div>
+    <div class="shots">
+      <img class="s-dash" src="png/d12-dashboard.png" alt="Dashboard, Clay direction">
+      <img class="s-pop" src="png/d12-popup.png" alt="Popup, Clay direction">
+      <img class="s-mob" src="png/d12-mobile.png" alt="Mobile, Clay direction">
+      <img class="s-bar" src="png/d12-bar.png" alt="Quick bar, Clay direction">
+    </div>
+  </section>
+</main>
+</body>
+</html>
