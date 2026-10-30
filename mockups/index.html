@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hasp, six design directions</title>
+<meta name="description" content="Six design directions for Hasp, a vault for API keys, backup codes and one-time codes. Mockups for extension, dashboard, desktop and mobile.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/board.css">
+<style>
+  .dir-list a {
+    grid-template-columns: 46px 132px minmax(0, 1fr) 132px 20px;
+    align-items: center;
+  }
+  .thumb {
+    width: 132px;
+    height: 83px;
+    object-fit: cover;
+    object-position: top left;
+    border: 1px solid var(--b-line);
+    display: block;
+  }
+  .dir-list a:hover .thumb { border-color: var(--b-mut); }
+  .strip {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr) 218px;
+    gap: 18px;
+    align-items: start;
+    margin-top: 40px;
+  }
+  .strip figure { margin: 0; }
+  .strip img { display: block; width: 100%; height: auto; border: 1px solid var(--b-line); }
+  .strip figcaption { padding-top: 6px; font-size: 11.5px; color: var(--b-mut); }
+  .strip-cap { margin: 14px 0 0; font-size: 12.5px; color: var(--b-mut); max-width: 60ch; }
+  @media (max-width: 760px) {
+    .strip { grid-template-columns: 1fr 1fr; }
+    .strip figure:nth-child(2) { grid-column: 1 / -1; order: 3; }
+  }
+  .screens-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 16px;
+  }
+  .screens-list div { border-top: 1px solid var(--b-line); padding-top: 10px; }
+  .screens-list b { display: block; font-size: 14px; font-weight: 600; }
+  .screens-list span { font-size: 12.5px; color: var(--b-mut); }
+  @media (max-width: 900px) {
+    .dir-list a { grid-template-columns: 38px 100px minmax(0, 1fr); }
+    .thumb { width: 100px; height: 63px; }
+    .dir-chips, .dir-go { display: none; }
+    .screens-list { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+<header class="board-bar">
+  <a class="board-brand" href="index.html">Hasp <span>Design directions</span></a>
+  <nav class="board-nav" aria-label="Sections">
+    <a href="01-foundry.html">01</a>
+    <a href="02-reading-room.html">02</a>
+    <a href="03-flight-deck.html">03</a>
+    <a href="04-grid.html">04</a>
+    <a href="05-native.html">05</a>
+    <a href="06-halcyon.html">06</a>
+    <a href="gallery.html">Images</a>
+  </nav>
+</header>
+
+<main class="board">
+  <section class="index-head">
+    <p class="dir-kicker"><i></i>Design exploration, October 2026</p>
+    <h1>Six directions<br>for one vault</h1>
+    <p>Hasp stores API keys, backup codes and one-time codes for people who already keep them in notes. It has four surfaces: a browser extension, a web dashboard, a desktop app and a mobile app. Each direction below applies one visual system to all four, using the same sample vault so the comparison stays honest.</p>
+  </section>
+
+  <div class="strip">
+    <figure><img src="png/d2-popup.png" alt="Hasp extension popup, Reading Room direction"><figcaption>Popup, 380 px</figcaption></figure>
+    <figure><img src="png/d2-bar.png" alt="Hasp quick bar over the Groq console, Reading Room direction"><figcaption>Quick bar over a live page</figcaption></figure>
+    <figure><img src="png/d2-mobile.png" alt="Hasp mobile app, Reading Room direction"><figcaption>Mobile, 390 px</figcaption></figure>
+  </div>
+  <p class="strip-cap">Direction 02 applied to three surfaces. Every direction carries the full set of six screens.</p>
+
+  <div class="section-head">
+    <h2>The six</h2>
+    <p>Pick one. Details inside each.</p>
+  </div>
+  <ul class="dir-list">
+    <li><a href="01-foundry.html">
+      <span class="dir-num">01</span>
+      <img class="thumb" src="png/d1-dashboard.png" alt="Foundry dashboard preview">
+      <span>
+        <span class="dir-title">Foundry</span>
+        <span class="dir-line" style="display:block;margin-top:4px">Parts catalog. Dense table, stamped labels, oxide accent. Archivo, square corners.</span>
+      </span>
+      <span class="dir-chips"><i style="background:#e8e6e0"></i><i style="background:#17170f"></i><i style="background:#b23a12"></i><i style="background:#3f6b3a"></i></span>
+      <span class="dir-go">Open</span>
+    </a></li>
+    <li><a href="02-reading-room.html">
+      <span class="dir-num">02</span>
+      <img class="thumb" src="png/d2-dashboard.png" alt="Reading Room dashboard preview">
+      <span>
+        <span class="dir-title">Reading Room</span>
+        <span class="dir-line" style="display:block;margin-top:4px">Index of records. Serif titles, hairline rules, pine accent. Notes keep their wording.</span>
+      </span>
+      <span class="dir-chips"><i style="background:#e9edea"></i><i style="background:#16211d"></i><i style="background:#1e5a48"></i><i style="background:#5f6e67"></i></span>
+      <span class="dir-go">Open</span>
+    </a></li>
+    <li><a href="03-flight-deck.html">
+      <span class="dir-num">03</span>
+      <img class="thumb" src="png/d3-dashboard.png" alt="Flight Deck dashboard preview">
+      <span>
+        <span class="dir-title">Flight Deck</span>
+        <span class="dir-line" style="display:block;margin-top:4px">Operations console. Dark, dense, semantic signals. Amber for live keys, teal for staging.</span>
+      </span>
+      <span class="dir-chips"><i style="background:#0e1417"></i><i style="background:#e7edee"></i><i style="background:#d9a227"></i><i style="background:#4e9c86"></i></span>
+      <span class="dir-go">Open</span>
+    </a></li>
+    <li><a href="04-grid.html">
+      <span class="dir-num">04</span>
+      <img class="thumb" src="png/d4-dashboard.png" alt="Grid dashboard preview">
+      <span>
+        <span class="dir-title">Grid</span>
+        <span class="dir-line" style="display:block;margin-top:4px">Swiss sheet. Visible structure, hard rules, one ultramarine accent. Instrument Sans.</span>
+      </span>
+      <span class="dir-chips"><i style="background:#f1f1ee"></i><i style="background:#0e0e0f"></i><i style="background:#1b34c0"></i><i style="background:#5c5c5e"></i></span>
+      <span class="dir-go">Open</span>
+    </a></li>
+    <li><a href="05-native.html">
+      <span class="dir-num">05</span>
+      <img class="thumb" src="png/d5-dashboard.png" alt="Native dashboard preview">
+      <span>
+        <span class="dir-title">Native</span>
+        <span class="dir-line" style="display:block;margin-top:4px">Chromeless utility. System type, icon rail, keyboard first. Feels local, not like a site.</span>
+      </span>
+      <span class="dir-chips"><i style="background:#f4f4f2"></i><i style="background:#1a1b1e"></i><i style="background:#2a2c31"></i><i style="background:#2f7d5c"></i></span>
+      <span class="dir-go">Open</span>
+    </a></li>
+    <li><a href="06-halcyon.html">
+      <span class="dir-num">06</span>
+      <img class="thumb" src="png/d6-dashboard.png" alt="Halcyon dashboard preview">
+      <span>
+        <span class="dir-title">Halcyon</span>
+        <span class="dir-line" style="display:block;margin-top:4px">Consumer vault. Warm paper, soft cards, juniper accent. Reads well on a phone first.</span>
+      </span>
+      <span class="dir-chips"><i style="background:#f3f1ec"></i><i style="background:#1b1a17"></i><i style="background:#2b6c74"></i><i style="background:#3e7a55"></i></span>
+      <span class="dir-go">Open</span>
+    </a></li>
+  </ul>
+
+  <div class="section-head">
+    <h2>Names</h2>
+    <p>Hasp is a working name, used in the mockups</p>
+  </div>
+  <table class="names">
+    <thead><tr><th>Name</th><th>Why it works</th><th>Watch out</th></tr></thead>
+    <tbody>
+      <tr data-pick><td>Hasp</td><td>A hinged metal strap that takes a padlock. Short, physical, five letters, one syllable.</td><td>Uncommon word. Check domain and trademark before committing.</td></tr>
+      <tr><td>Keystone</td><td>The stone that locks an arch. Says stability without saying security.</td><td>Used by several companies. Harder to own in search.</td></tr>
+      <tr><td>Fob</td><td>The small object that holds keys. Blunt and memorable.</td><td>Very short, hard to trademark. Reads as a consumer gadget.</td></tr>
+      <tr><td>Latch</td><td>A closing mechanism. Verb and noun in one word.</td><td>Crowded in developer tools. Close to existing hardware brands.</td></tr>
+      <tr><td>Custodian</td><td>The person who keeps records safe. Serious tone for teams.</td><td>Long, formal. Weak as an app icon label.</td></tr>
+      <tr><td>Keyline</td><td>A typographic term for the finest rule. Designer audience, subtle.</td><td>Less literal. Needs explaining once.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-head">
+    <h2>What the set covers</h2>
+    <p>36 rendered images, 6 per direction</p>
+  </div>
+  <div class="screens-list">
+    <div><b>Web dashboard</b><span>Vault table, filters, detail pane with copy and reveal</span></div>
+    <div><b>Extension popup</b><span>Suggested key for the active host, recent items</span></div>
+    <div><b>Quick bar</b><span>Overlay on a live site, Enter fills the focused field</span></div>
+    <div><b>Import review</b><span>Google Keep export parsed into items with confidence per field</span></div>
+    <div><b>Desktop app</b><span>Local vault, command palette, global shortcut</span></div>
+    <div><b>Mobile app</b><span>One-time codes first, keys one tap away</span></div>
+  </div>
+
+  <div class="note-block">
+    <p>Sample vault data appears in every image. The keys are invented, the services are real, and no image shows a working product. Values are masked the way the product would mask them.</p>
+    <p>Each direction page loads the same markup with a different stylesheet. That keeps content identical and shows what a design system has to carry.</p>
+  </div>
+
+  <footer class="board-foot">
+    <nav>
+      <a href="gallery.html">All 36 images</a>
+      <a href="sheet.html">Overview sheet</a>
+      <a href="../PLAN.md">Implementation plan</a>
+    </nav>
+    <span>Hasp design exploration, October 2026</span>
+  </footer>
+</main>
+</body>
+</html>

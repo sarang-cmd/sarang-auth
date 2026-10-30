@@ -1,0 +1,967 @@
+/* Six directions. Tokens first, then the parts that carry each identity. */
+
+/* ---------------------------------------------------------------- 01 Foundry
+   Parts catalog. Hard edges, stamped labels, one oxide accent. */
+body.d1 {
+  --veil: rgba(23, 23, 15, 0.15);
+  --ui: "Archivo", system-ui, sans-serif;
+  --display: "Archivo", system-ui, sans-serif;
+  --mono: "Archivo", system-ui, sans-serif;
+  --fs: 13px;
+  --bg: #e8e6e0;
+  --panel: #f1efe9;
+  --ink: #17170f;
+  --ink2: #3c3b31;
+  --mut: #6c6a5b;
+  --line: #c0bdb1;
+  --line-2: #d7d4c8;
+  --accent: #b23a12;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(178, 58, 18, 0.07);
+  --ok: #3f6b3a;
+  --r: 0px;
+  --r-sm: 0px;
+  --rowh: 48px;
+  --railw: 240px;
+  --inspw: 376px;
+}
+body.d1 .rail {
+  background: #edebe4;
+  border-right: 1.5px solid var(--ink);
+}
+body.d1 .rail-brand {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.03em;
+}
+body.d1 .rail-nav a.is-on {
+  background: var(--ink);
+  color: var(--bg);
+}
+body.d1 .rail-nav a.is-on svg {
+  color: var(--bg);
+}
+body.d1 .list-head {
+  background: var(--ink);
+  color: #d8d5c8;
+  height: 30px;
+  font-size: 10px;
+}
+body.d1 .row {
+  border-bottom: 1px solid var(--line);
+}
+body.d1 .row.is-on {
+  background: var(--panel);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+body.d1 .tile {
+  background: #fbfaf6;
+  border: 1px solid var(--ink);
+  font-weight: 700;
+}
+body.d1 .tag {
+  border: 1px solid var(--ink);
+  font-weight: 600;
+  color: var(--ink);
+}
+body.d1 .tag--prod,
+body.d1 .tag--live {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+body.d1 .tag--none {
+  border-style: dashed;
+  color: var(--mut);
+}
+body.d1 .btn {
+  border: 1px solid var(--ink);
+  background: #fbfaf6;
+  font-weight: 600;
+}
+body.d1 .btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+body.d1 .chip.is-on {
+  border-color: var(--ink);
+  background: #fbfaf6;
+}
+body.d1 .inspector {
+  border-left: 1.5px solid var(--ink);
+}
+body.d1 .titleblock h1 {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+body.d1 .topbar {
+  border-bottom: 1px solid var(--ink);
+}
+body.d1 .filters {
+  border-bottom: 0;
+  padding-top: 12px;
+}
+body.d1 .suggest {
+  background: #fbfaf6;
+  border: 1px solid var(--ink);
+  border-left: 3px solid var(--accent);
+}
+body.d1 .sconf {
+  color: var(--accent);
+}
+body.d1 .qbar {
+  border: 1px solid var(--ink);
+}
+body.d1 .qrow.is-pick {
+  background: #fbfaf6;
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+body.d1 .secret code {
+  font-size: 12px;
+}
+body.d1 .pv-secret code,
+body.d1 .totp-code {
+  font-family: var(--ui);
+  font-weight: 600;
+}
+body.d1 .pop-head {
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 10px;
+}
+body.d1 .pop {
+  padding-top: 12px;
+}
+
+/* ------------------------------------------------------------ 02 Reading Room
+   An index of records. Cool stone, deep pine, serif titles, quiet rows. */
+body.d2 {
+  --veil: rgba(22, 33, 29, 0.14);
+  --ui: "Public Sans", system-ui, sans-serif;
+  --display: "Newsreader", Georgia, serif;
+  --mono: "Newsreader", Georgia, serif;
+  --fs: 13px;
+  --bg: #e9edea;
+  --panel: #f5f7f4;
+  --ink: #16211d;
+  --ink2: #2f3b36;
+  --mut: #5f6e67;
+  --line: #cbd4ce;
+  --line-2: #dce3de;
+  --accent: #1e5a48;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(30, 90, 72, 0.07);
+  --ok: #2f7d5c;
+  --r: 3px;
+  --r-sm: 3px;
+  --rowh: 58px;
+  --inspw: 400px;
+}
+body.d2 .rail {
+  background: transparent;
+  border-right: 1px solid var(--line);
+  padding: 22px 18px;
+}
+body.d2 .rail-brand {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+body.d2 .rail-nav a {
+  font-family: var(--display);
+  font-size: 14px;
+  height: 32px;
+  padding: 0 0;
+  gap: 0;
+  color: var(--ink2);
+}
+body.d2 .rail-nav a svg {
+  display: none;
+}
+body.d2 .rail-nav a.is-on {
+  background: none;
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+body.d2 .rail-nav a em {
+  font-family: var(--ui);
+  font-size: 10.5px;
+}
+body.d2 .titleblock h1 {
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+body.d2 .rtitle {
+  font-family: var(--display);
+  font-size: 16.5px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+body.d2 .rsub {
+  font-size: 11px;
+}
+body.d2 .tile {
+  border-radius: 50%;
+  background: transparent;
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 500;
+}
+body.d2 .tag {
+  border: 0;
+  padding: 0;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 12.5px;
+  color: var(--mut);
+  height: auto;
+}
+body.d2 .tag--prod,
+body.d2 .tag--live {
+  color: var(--accent);
+  border: 0;
+}
+body.d2 .tag--none {
+  border: 0;
+  opacity: 1;
+}
+body.d2 .list-head {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 12.5px;
+  color: var(--mut);
+  border-bottom: 1px solid var(--line);
+  height: 38px;
+}
+body.d2 .row {
+  border-bottom: 1px solid var(--line-2);
+}
+body.d2 .row.is-on {
+  background: transparent;
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+body.d2 .chip {
+  border-radius: 0;
+  border-color: transparent;
+  border-bottom: 1px solid transparent;
+}
+body.d2 .chip.is-on {
+  background: none;
+  border-color: transparent;
+  border-bottom-color: var(--ink);
+}
+body.d2 .btn {
+  background: transparent;
+}
+body.d2 .btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+body.d2 .inspector {
+  background: transparent;
+  border-left: 1px solid var(--line);
+}
+body.d2 .insp-head h2 {
+  font-size: 21px;
+  font-weight: 500;
+}
+body.d2 .suggest {
+  background: transparent;
+  border: 0;
+  border-left: 2px solid var(--accent);
+  border-radius: 0;
+  padding: 2px 0 2px 12px;
+}
+body.d2 .pop-brand {
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 500;
+}
+body.d2 .pop-search {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  padding-left: 0;
+}
+body.d2 .pop-filters .chip {
+  height: 22px;
+  padding: 0 6px;
+  font-size: 10.5px;
+}
+body.d2 .totp-code {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+body.d2 .mob-head h1 {
+  font-weight: 400;
+  font-size: 27px;
+}
+body.d2 .qbar {
+  border-radius: 3px;
+}
+body.d2 .palette {
+  border-radius: 3px;
+}
+
+/* ------------------------------------------------------------- 03 Flight Deck
+   Operations console. Dark, dense, two signal colours, mono figures. */
+body.d3 {
+  --veil: rgba(4, 8, 10, 0.48);
+  --ui: "IBM Plex Sans", system-ui, sans-serif;
+  --display: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  --fs: 12.5px;
+  --bg: #0e1417;
+  --panel: #141c1f;
+  --ink: #e7edee;
+  --ink2: #c2cfd1;
+  --mut: #7d8f94;
+  --line: #263336;
+  --line-2: #1e292c;
+  --accent: #d9a227;
+  --accent-ink: #12181a;
+  --accent-soft: rgba(217, 162, 39, 0.1);
+  --ok: #4e9c86;
+  --r: 2px;
+  --r-sm: 2px;
+  --rowh: 40px;
+  --railw: 210px;
+  --inspw: 370px;
+}
+body.d3 .rail {
+  background: #10181b;
+}
+body.d3 .rail-brand {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+body.d3 .rail-ws,
+body.d3 .rail-sync,
+body.d3 .rail-user,
+body.d3 .list-head,
+body.d3 .rwhen,
+body.d3 .rtype,
+body.d3 .slabel,
+body.d3 .flabel,
+body.d3 .mob-kicker {
+  font-family: var(--mono);
+}
+body.d3 .rail-nav a.is-on {
+  background: rgba(217, 162, 39, 0.12);
+  color: #f3d79a;
+}
+body.d3 .rail-nav a.is-on svg {
+  color: var(--accent);
+}
+body.d3 .list-head {
+  height: 28px;
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  color: var(--mut);
+  border-bottom: 1px solid var(--line);
+}
+body.d3 .row {
+  border-bottom: 1px solid var(--line-2);
+}
+body.d3 .row.is-on {
+  background: rgba(217, 162, 39, 0.08);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+body.d3 .tile {
+  background: #182326;
+  border-color: var(--line);
+  color: var(--ink2);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+body.d3 .rtitle {
+  color: var(--ink);
+}
+body.d3 .tag {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  height: 18px;
+  text-transform: lowercase;
+}
+body.d3 .tag--prod,
+body.d3 .tag--live {
+  color: var(--accent);
+  border-color: rgba(217, 162, 39, 0.5);
+}
+body.d3 .tag--staging {
+  color: var(--ok);
+  border-color: rgba(78, 156, 134, 0.5);
+}
+body.d3 .btn {
+  background: #182326;
+  border-color: var(--line);
+}
+body.d3 .btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+body.d3 .search {
+  background: #121a1d;
+}
+body.d3 .inspector {
+  background: #111a1d;
+}
+body.d3 .titleblock h1 {
+  font-size: 24px;
+  letter-spacing: -0.01em;
+}
+body.d3 .secret {
+  background: #0c1214;
+}
+body.d3 .secret code {
+  color: #f0d49a;
+}
+body.d3 .secret code em {
+  color: var(--mut);
+}
+body.d3 .btn--quiet {
+  background: transparent;
+}
+body.d3 .chip.is-on {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--line);
+}
+body.d3 .suggest {
+  background: rgba(217, 162, 39, 0.06);
+  border-color: rgba(217, 162, 39, 0.28);
+}
+body.d3 .sconf {
+  color: var(--accent);
+}
+body.d3 .qbar {
+  background: #121a1d;
+}
+body.d3 .qrow.is-pick {
+  background: rgba(217, 162, 39, 0.1);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+body.d3 .pop {
+  background: #111a1d;
+}
+body.d3 .pop-search {
+  background: #0c1214;
+}
+body.d3 .kbd,
+body.d3 kbd {
+  background: #182326;
+  border-color: var(--line);
+}
+body.d3 .totp-code {
+  color: var(--accent);
+  font-size: 34px;
+}
+body.d3 .palette {
+  background: #121a1d;
+}
+body.d3 .winbar {
+  background: #0c1315;
+}
+body.d3 .statusbar {
+  color: var(--ink);
+}
+body.d3 .sbatt,
+body.d3 .sbar {
+  border-color: var(--ink2);
+  background: var(--ink2);
+}
+body.d3 .wv-head, body.d3 .wv-row, body.d3 .winvault {
+  border-color: var(--line);
+}
+body.d3 .winvault {
+  background: #121a1d;
+}
+body.d3 .mob-tabs {
+  background: #111a1d;
+}
+body.d3 .imp-right,
+body.d3 .imp-summary {
+  border-color: var(--line);
+}
+body.d3 .note {
+  background: #121a1d;
+}
+body.d3 .note.is-on {
+  border-color: var(--accent);
+}
+body.d3 .conf {
+  color: var(--ok);
+}
+
+/* ---------------------------------------------------------------- 04 Grid
+   Swiss sheet. Visible structure, no rounding, ultramarine for state only. */
+body.d4 {
+  --veil: rgba(14, 14, 15, 0.13);
+  --ui: "Instrument Sans", system-ui, sans-serif;
+  --display: "Instrument Sans", system-ui, sans-serif;
+  --mono: "Instrument Sans", system-ui, sans-serif;
+  --fs: 13px;
+  --bg: #f1f1ee;
+  --panel: #f8f8f5;
+  --ink: #0e0e0f;
+  --ink2: #333335;
+  --mut: #5c5c5e;
+  --line: #cfcfc9;
+  --line-2: #deded8;
+  --accent: #1b34c0;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(27, 52, 192, 0.06);
+  --ok: #1e7a4c;
+  --r: 0px;
+  --r-sm: 0px;
+  --rowh: 50px;
+  --railw: 216px;
+  --inspw: 384px;
+}
+body.d4 .rail {
+  background: var(--bg);
+  border-right: 1px solid var(--ink);
+}
+body.d4 .rail-brand {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+body.d4 .rail-nav a.is-on {
+  background: none;
+  color: var(--accent);
+  font-weight: 600;
+}
+body.d4 .rail-nav a.is-on svg {
+  color: var(--accent);
+}
+body.d4 .topbar {
+  padding-bottom: 18px;
+}
+body.d4 .titleblock h1 {
+  font-size: 27px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+body.d4 .filters {
+  border-bottom: 2px solid var(--ink);
+}
+body.d4 .chip {
+  border-radius: 0;
+}
+body.d4 .chip.is-on {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+body.d4 .list-head {
+  height: 32px;
+  font-size: 10px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+body.d4 .row {
+  border-bottom: 1px solid var(--line);
+}
+body.d4 .row.is-on {
+  background: var(--panel);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+body.d4 .tile {
+  background: transparent;
+  border-color: var(--ink);
+  font-weight: 500;
+}
+body.d4 .tag {
+  border: 0;
+  padding: 0;
+  height: auto;
+  color: var(--mut);
+  font-size: 11px;
+}
+body.d4 .tag--prod,
+body.d4 .tag--live {
+  color: var(--accent);
+  font-weight: 600;
+}
+body.d4 .tag--none {
+  border: 0;
+  opacity: 0.7;
+}
+body.d4 .btn {
+  background: transparent;
+  border-color: var(--ink);
+}
+body.d4 .btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+body.d4 .btn--small {
+  border-color: var(--line);
+}
+body.d4 .inspector {
+  background: var(--bg);
+  border-left: 1px solid var(--ink);
+}
+body.d4 .fieldgrid {
+  border-color: var(--line);
+}
+body.d4 .secret {
+  background: transparent;
+  border-color: var(--ink);
+}
+body.d4 .suggest {
+  background: transparent;
+  border: 0;
+  border-left: 2px solid var(--accent);
+  border-radius: 0;
+  padding-left: 12px;
+}
+body.d4 .sconf {
+  color: var(--accent);
+}
+body.d4 .pop-search {
+  border-color: var(--ink);
+  background: transparent;
+}
+body.d4 .qbar {
+  border: 1px solid var(--ink);
+  box-shadow: 0 18px 44px -22px rgba(0, 0, 0, 0.4);
+}
+body.d4 .qrow.is-pick {
+  background: var(--bg);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+body.d4 .palette {
+  border-color: var(--ink);
+}
+body.d4 .pv-row {
+  border-color: var(--line);
+}
+
+/* ---------------------------------------------------------------- 05 Native
+   Chromeless utility. System type, icon rail, small radii, no table header. */
+body.d5 {
+  --veil: rgba(20, 22, 26, 0.16);
+  --ui: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, sans-serif;
+  --display: var(--ui);
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", "Segoe UI Mono", monospace;
+  --fs: 13px;
+  --bg: #f4f4f2;
+  --panel: #fbfbf9;
+  --ink: #1a1b1e;
+  --ink2: #3a3c40;
+  --mut: #6e7076;
+  --line: #e0e0db;
+  --line-2: #eaeae5;
+  --accent: #2a2c31;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(20, 22, 26, 0.06);
+  --ok: #2f7d5c;
+  --r: 12px;
+  --r-sm: 6px;
+  --rowh: 44px;
+  --railw: 64px;
+  --inspw: 344px;
+}
+body.d5 .rail {
+  width: 64px;
+  padding: 14px 0;
+  align-items: center;
+  background: var(--panel);
+}
+body.d5 .rail-brand {
+  padding: 0;
+  justify-content: center;
+}
+body.d5 .rail-brand > span:last-child,
+body.d5 .rail-ws,
+body.d5 .rail-nav a span,
+body.d5 .rail-nav a em,
+body.d5 .rail-user > span:last-child,
+body.d5 .rail-sync,
+body.d5 .rail-user {
+  display: none;
+}
+body.d5 .rail-nav {
+  margin-top: 18px;
+  gap: 4px;
+}
+body.d5 .rail-nav a {
+  width: 36px;
+  height: 34px;
+  justify-content: center;
+  padding: 0;
+}
+body.d5 .rail-foot {
+  align-items: center;
+}
+body.d5 .avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+body.d5 .list-head {
+  display: none;
+}
+body.d5 .list {
+  padding-top: 6px;
+}
+body.d5 .row {
+  grid-template-columns: 28px minmax(0, 1fr) 78px 116px 84px;
+  border-bottom: 1px solid var(--line-2);
+}
+body.d5 .row.is-on {
+  background: var(--accent-soft);
+  border-radius: 0;
+}
+body.d5 .tile {
+  border-radius: 7px;
+  border-color: var(--line);
+  background: #fff;
+}
+body.d5 .tag {
+  border: 0;
+  background: rgba(0, 0, 0, 0.045);
+  height: 18px;
+  border-radius: 4px;
+  font-size: 10.5px;
+}
+body.d5 .btn {
+  border-radius: 7px;
+  background: #fff;
+}
+body.d5 .btn--primary {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+body.d5 .chip {
+  border-radius: 999px;
+}
+body.d5 .chip.is-on {
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  border-color: var(--line);
+}
+body.d5 .search {
+  border-radius: 8px;
+  background: #fff;
+}
+body.d5 .inspector {
+  border-left: 1px solid var(--line);
+}
+body.d5 .titleblock h1 {
+  font-size: 21px;
+  font-weight: 600;
+}
+body.d5 .suggest {
+  background: #fff;
+  border-color: var(--line);
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+body.d5 .sconf {
+  color: var(--ink2);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+body.d5 .pop-search {
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-color: var(--line);
+  border-radius: 8px;
+}
+body.d5 .qbar {
+  border-radius: 14px;
+  box-shadow: 0 30px 70px -22px rgba(0, 0, 0, 0.45);
+}
+body.d5 .palette {
+  border-radius: 14px;
+  box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.4);
+}
+body.d5 .pv-secret,
+body.d5 .note,
+body.d5 .totp-card {
+  border-radius: 10px;
+}
+
+/* ---------------------------------------------------------------- 06 Halcyon
+   Consumer vault. Warm paper, juniper accent, soft cards, generous rows. */
+body.d6 {
+  --veil: rgba(27, 26, 23, 0.16);
+  --ui: "Sora", system-ui, sans-serif;
+  --display: "Sora", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  --fs: 13px;
+  --bg: #f3f1ec;
+  --panel: #fbf9f4;
+  --ink: #1b1a17;
+  --ink2: #3e3c36;
+  --mut: #6f6a5f;
+  --line: #dfd9cc;
+  --line-2: #eae5da;
+  --accent: #2b6c74;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(43, 108, 116, 0.09);
+  --ok: #3e7a55;
+  --r: 16px;
+  --r-sm: 10px;
+  --rowh: 58px;
+  --railw: 228px;
+  --inspw: 384px;
+}
+body.d6 .rail {
+  background: transparent;
+  border-right: 1px solid var(--line);
+}
+body.d6 .rail-brand {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+body.d6 .rail-nav a {
+  height: 36px;
+  border-radius: 10px;
+  font-size: 12.5px;
+}
+body.d6 .rail-nav a.is-on {
+  background: var(--panel);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink);
+}
+body.d6 .rail-nav a.is-on svg {
+  color: var(--accent);
+}
+body.d6 .titleblock h1 {
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+body.d6 .list {
+  padding: 4px 10px;
+}
+body.d6 .list-head {
+  padding: 0 12px;
+}
+body.d6 .row {
+  margin: 0;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  height: 56px;
+}
+body.d6 .row.is-on {
+  background: var(--panel);
+  border-color: var(--line);
+  box-shadow: 0 1px 0 rgba(27, 26, 23, 0.03);
+}
+body.d6 .tile {
+  border-radius: 10px;
+  border-color: transparent;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+body.d6 .tag {
+  border-radius: 999px;
+  border-color: var(--line);
+  padding: 0 8px;
+  background: var(--panel);
+  font-size: 10.5px;
+}
+body.d6 .tag--prod,
+body.d6 .tag--live {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+body.d6 .tag--none {
+  border-style: solid;
+  opacity: 1;
+  color: var(--mut);
+}
+body.d6 .btn {
+  border-radius: 10px;
+  background: var(--panel);
+}
+body.d6 .btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+body.d6 .chip {
+  border-radius: 999px;
+  height: 26px;
+}
+body.d6 .chip.is-on {
+  background: var(--panel);
+  border-color: var(--line);
+}
+body.d6 .search {
+  border-radius: 10px;
+  background: var(--panel);
+}
+body.d6 .inspector {
+  background: var(--panel);
+  border-left: 1px solid var(--line);
+  border-top-left-radius: 18px;
+}
+body.d6 .suggest {
+  background: var(--accent-soft);
+  border-color: transparent;
+  border-radius: 12px;
+  padding: 11px 12px;
+}
+body.d6 .sconf {
+  color: var(--accent);
+}
+body.d6 .qbar {
+  border-radius: 18px;
+  box-shadow: 0 30px 70px -24px rgba(35, 30, 18, 0.42);
+}
+body.d6 .qrow {
+  border-radius: 12px;
+}
+body.d6 .qrow.is-pick {
+  background: var(--accent-soft);
+}
+body.d6 .palette {
+  border-radius: 18px;
+  box-shadow: 0 24px 60px -30px rgba(35, 30, 18, 0.4);
+}
+body.d6 .pop {
+  padding-top: 16px;
+}
+body.d6 .pop-search {
+  background: var(--bg);
+  border-radius: 10px;
+}
+body.d6 .totp-card {
+  background: var(--panel);
+  border-radius: 16px;
+  border-color: var(--line);
+}
+body.d6 .totp-code {
+  font-family: var(--display);
+  font-size: 32px;
+  font-weight: 500;
+}
+body.d6 .pv-secret,
+body.d6 .note {
+  border-radius: 12px;
+}
+body.d6 .secret {
+  border-radius: 10px;
+}
