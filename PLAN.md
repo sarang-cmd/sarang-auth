@@ -190,15 +190,33 @@ mockups/
   index.html              hub, names, 12 directions
   browse.html             thumbnail browser, filter by light or dark, full screen set per direction
   gallery.html            all 72 images
+  brands.html             brand library, 586 company marks with search and filters
   sheet.html              light overview sheet
   sheet-dark.html         dark overview sheet
   0N-*.html               twelve direction pages with live screens
   png/                    72 mockup PNGs at 2x, plus 00-overview.png and 00-overview-dark.png
   assets/                 board, screens and direction CSS, fonts
-  _build/                 page generator, screen markup, direction copy
+  assets/brands/          one SVG per company mark
+  assets/brands.json      registry: name, domain, category, colour, plate, artwork
+  _build/                 page generator, screen markup, direction copy, brand build
+  _build/fetch-logos.mjs  optional logo.dev fetch, off by default
 PLAN.md                   this file
 ```
 
-Regenerate pages with `node mockups/_build/build.mjs`, `node mockups/_build/gallery.mjs` and `node mockups/_build/browse.mjs`. Images were rendered with headless Chromium at 2x. The dark set uses the same screen markup, so a product can switch theme with tokens and a handful of component rules.
+Regenerate pages with `node mockups/_build/build.mjs`, `node mockups/_build/gallery.mjs`, `node mockups/_build/browse.mjs` and `node mockups/_build/brandpage.mjs`. Rebuild the brand registry with `node mockups/_build/brands.mjs` after editing `_build/brand-slugs.mjs`. That step needs `simple-icons` and `@iconify-json/logos` installed; the generated files are committed, so a normal build does not. Images were rendered with headless Chromium at 2x. The dark set uses the same screen markup, so a product can switch theme with tokens and a handful of component rules.
 
-Not done: legal copy, pricing, real product screens, icon set beyond the placeholder mark, light and dark pairs for every direction, motion specs.
+Not done: legal copy, pricing, real product screens, a product icon set beyond the small stroke set in the screens, light and dark pairs for every direction, motion specs.
+
+---
+
+## 13. Brand marks
+
+Every service in the sample vault carries its real mark. The set covers 586 companies that issue keys, run accounts, or offer an API, grouped as identity, security, cloud, dev tools, data, AI, payments, productivity, communication, analytics, commerce and consumer.
+
+Sources are the Simple Icons and SVG Logos sets, installed from npm and vendored into `mockups/assets/brands/`. Simple Icons contributes 499 single colour marks with the published brand hex. SVG Logos contributes 77 full colour marks, which covers brands Simple Icons does not carry, Groq among them. Each mark is one standalone SVG plus an entry in `assets/brands.json` with name, domain, category, colour and plate.
+
+Tiles keep the shape and border of each direction. The plate behind the mark turns light in every direction, because a near black mark on a dark plate disappears. Marks with light fills get a dark plate instead, computed from the artwork. Wide wordmarks scale to fit, so Groq stays a wordmark rather than a cropped letter.
+
+The library page inlines every mark, so it works from disk with no requests. `_build/fetch-logos.mjs` will pull square app icons from logo.dev when a publishable token is set in `LOGO_DEV_TOKEN`. It is optional and off the build path.
+
+Marks belong to their owners and appear for identification only. Both icon sets are CC0. No endorsement is implied.

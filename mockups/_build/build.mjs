@@ -83,7 +83,7 @@ function page(d, prev, next) {
 <body class="${d.id}">
 <header class="board-bar">
   <a class="board-brand" href="index.html">Hasp <span>Design directions</span></a>
-  <nav class="board-nav" aria-label="Directions">${nav(d.id)}<a href="browse.html">Browse</a><a href="gallery.html">Images</a></nav>
+  <nav class="board-nav" aria-label="Directions">${nav(d.id)}<a href="browse.html">Browse</a><a href="gallery.html">Images</a><a href="brands.html">Brands</a></nav>
 </header>
 <main class="board">
   <section class="dir-head">

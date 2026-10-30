@@ -127,6 +127,8 @@ const page = `<!doctype html>
     color: var(--b-bg);
   }
 
+  .top-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
   .top-link {
     font-size: 12.5px;
     color: var(--b-mut);
@@ -489,6 +491,7 @@ const page = `<!doctype html>
         <button type="button" data-filter="dark" aria-pressed="false">Dark 6</button>
       </div>
       <a class="top-link" href="gallery.html">Flat image list</a>
+      <a class="top-link" href="brands.html">Brand library</a>
     </div>
   </div>
 </header>
@@ -539,7 +542,7 @@ const page = `<!doctype html>
 
   <footer class="foot">
     <span>Hasp, October 2026. Twelve directions, 72 renders.</span>
-    <span><a href="index.html">Index</a> &nbsp; <a href="gallery.html">All images</a> &nbsp; <a href="sheet.html">Light sheet</a> &nbsp; <a href="sheet-dark.html">Dark sheet</a> &nbsp; <a href="../PLAN.md">Plan</a></span>
+    <span><a href="index.html">Index</a> &nbsp; <a href="gallery.html">All images</a> &nbsp; <a href="brands.html">Brands</a> &nbsp; <a href="sheet.html">Light sheet</a> &nbsp; <a href="sheet-dark.html">Dark sheet</a> &nbsp; <a href="../PLAN.md">Plan</a></span>
   </footer>
 </main>
 
