@@ -40,7 +40,7 @@ const gallery = `<!doctype html>
 <body>
 <header class="board-bar">
   <a class="board-brand" href="index.html">Hasp <span>Design directions</span></a>
-  <nav class="board-nav" aria-label="Directions">${nav}<a href="gallery.html" aria-current="page">Images</a></nav>
+  <nav class="board-nav" aria-label="Directions">${nav}<a href="browse.html">Browse</a><a href="gallery.html" aria-current="page">Images</a></nav>
 </header>
 <main class="board">
   <section class="dir-head">
@@ -68,7 +68,7 @@ const gallery = `<!doctype html>
     )
     .join("")}
   <footer class="board-foot">
-    <nav><a href="index.html">All directions</a><a href="sheet.html">Overview sheet</a><a href="../PLAN.md">Implementation plan</a></nav>
+    <nav><a href="browse.html">Browse by style</a><a href="index.html">Index</a><a href="sheet.html">Light sheet</a><a href="sheet-dark.html">Dark sheet</a><a href="../PLAN.md">Implementation plan</a></nav>
     <span>Sample vault data. Values are invented.</span>
   </footer>
 </main>

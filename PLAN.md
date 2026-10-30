@@ -188,6 +188,7 @@ Each phase ends with a working build on Vercel and a signed extension build.
 ```
 mockups/
   index.html              hub, names, 12 directions
+  browse.html             thumbnail browser, filter by light or dark, full screen set per direction
   gallery.html            all 72 images
   sheet.html              light overview sheet
   sheet-dark.html         dark overview sheet
@@ -198,6 +199,6 @@ mockups/
 PLAN.md                   this file
 ```
 
-Regenerate pages with `node mockups/_build/build.mjs` and `node mockups/_build/gallery.mjs`. Images were rendered with headless Chromium at 2x. The dark set uses the same screen markup, so a product can switch theme with tokens and a handful of component rules.
+Regenerate pages with `node mockups/_build/build.mjs`, `node mockups/_build/gallery.mjs` and `node mockups/_build/browse.mjs`. Images were rendered with headless Chromium at 2x. The dark set uses the same screen markup, so a product can switch theme with tokens and a handful of component rules.
 
 Not done: legal copy, pricing, real product screens, icon set beyond the placeholder mark, light and dark pairs for every direction, motion specs.

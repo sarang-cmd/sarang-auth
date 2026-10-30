@@ -4,6 +4,7 @@ A vault for API keys, backup codes and one-time codes, with a browser extension,
 
 This repository currently holds the design exploration and the implementation plan. No product code yet. Twelve directions, six light and six dark, 72 rendered images.
 
+- `mockups/browse.html` is the browser: filter light or dark, open a direction, see every screen.
 - `mockups/index.html` lists twelve visual directions.
 - `mockups/gallery.html` shows all 72 rendered mockup images.
 - `mockups/png/` holds the images.
