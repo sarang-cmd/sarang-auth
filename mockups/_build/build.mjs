@@ -87,7 +87,7 @@ function page(d, prev, next) {
 </header>
 <main class="board">
   <section class="dir-head">
-    <p class="dir-kicker"><i></i>Direction ${d.id.slice(1)}, of six</p>
+    <p class="dir-kicker"><i></i>Direction ${d.id.slice(1)}, of ${dirs.length}</p>
     <h1 class="dir-name">${d.name}</h1>
     <p class="dir-premise">${d.premise}</p>
     <div class="dir-facts">

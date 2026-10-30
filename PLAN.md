@@ -1,10 +1,15 @@
 # Hasp, implementation plan
 
-Working name: Hasp. Status: design exploration done, no product code written.
+Working name: Hasp. Status: design exploration done, 12 directions and 72 mockup images, no product code written.
 
 The repository held one README before this work. There was no site to audit, so the audit list from the brief becomes the build standard in sections 8 and 9.
 
-Read the design direction that fits before starting. All six use the same markup and content, so the chosen stylesheet moves into the product with minor changes.
+Read the design direction that fits before starting. All twelve use the same markup and content, so the chosen stylesheet moves into the product with minor changes.
+
+Light set: Foundry, Reading Room, Flight Deck, Grid, Native, Halcyon.
+Dark set: Nightshift (neumorphism), Brut (neubrutalism), Retrograde (retro futurism), Weimar (Bauhaus), Glasshouse (glassmorphism), Clay (claymorphism).
+
+Trend references come from the DesignerUp list of popular UI styles. Each dark direction keeps one deliberate constraint: contrast and legibility first, trend second.
 
 ---
 
@@ -13,7 +18,7 @@ Read the design direction that fits before starting. All six use the same markup
 | Decision | Options | Default if you say nothing |
 | --- | --- | --- |
 | Name | Hasp, Keystone, Fob, Latch, Custodian, Keyline | Hasp |
-| Direction | 01 Foundry, 02 Reading Room, 03 Flight Deck, 04 Grid, 05 Native, 06 Halcyon | 02 Reading Room |
+| Direction | 01 to 12, six light and six dark | 02 Reading Room for daylight, 11 Glasshouse for a dark default |
 | First release | Web and extension only, or all four surfaces | Web and extension first |
 | Search model | Client-side index, or encrypted server index | Client-side index |
 | AI labels | On-device model, hosted model with redaction, or no model in v1 | Hosted model with explicit consent and redaction |
@@ -182,16 +187,17 @@ Each phase ends with a working build on Vercel and a signed extension build.
 
 ```
 mockups/
-  index.html              hub, names, directions
-  gallery.html            all 36 images
-  sheet.html              one page overview
-  0N-*.html               direction pages with live screens
-  png/                    36 mockup PNGs at 2x plus 00-overview.png
+  index.html              hub, names, 12 directions
+  gallery.html            all 72 images
+  sheet.html              light overview sheet
+  sheet-dark.html         dark overview sheet
+  0N-*.html               twelve direction pages with live screens
+  png/                    72 mockup PNGs at 2x, plus 00-overview.png and 00-overview-dark.png
   assets/                 board, screens and direction CSS, fonts
   _build/                 page generator, screen markup, direction copy
 PLAN.md                   this file
 ```
 
-Regenerate pages with `node mockups/_build/build.mjs` and `node mockups/_build/gallery.mjs`. Images were rendered with headless Chromium.
+Regenerate pages with `node mockups/_build/build.mjs` and `node mockups/_build/gallery.mjs`. Images were rendered with headless Chromium at 2x. The dark set uses the same screen markup, so a product can switch theme with tokens and a handful of component rules.
 
-Not done: legal copy, pricing, real product screens, icon set beyond the placeholder mark, dark mode pairing for the light directions, motion specs.
+Not done: legal copy, pricing, real product screens, icon set beyond the placeholder mark, light and dark pairs for every direction, motion specs.
