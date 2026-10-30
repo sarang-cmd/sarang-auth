@@ -1,0 +1,121 @@
+// Candidate brands, grouped by category. Slugs are matched against the
+// Simple Icons and SVG Logos packs, with fuzzy repair, so minor spelling
+// differences survive. Brands that only exist in the Logos pack get their
+// name and domain from the override map in brands.mjs.
+export const groups = {
+  Identity: [
+    "okta","auth0","clerk","workos","stytch","fusionauth","keycloak","authentik","supertokens","logto","ory",
+    "1password","bitwarden","dashlane","lastpass","keeper","enpass","roboform","nordpass","proton","protonmail",
+    "google","microsoft","apple","github","gitlab","pingidentity","sailpoint","cyberark","duo","yubico","authy",
+    "zitadel","casdoor","ente","hanko","descope","passkey","webauthn","fido","jsonwebtokens","oauth",
+    "lastpass","keepersecurity","beyondtrust","delinea","teleport","hashicorp","vault","openid","saml",
+    "duosecurity","googleauthenticator","microsoftauthenticator","1password","keeper","nordpass",
+  ],
+  Security: [
+    "crowdstrike","sentinelone","paloaltonetworks","fortinet","wazuh","tailscale","wireguard","openvpn","nordvpn",
+    "expressvpn","surfshark","protonvpn","cloudflare","snyk","sonarqube","qualys","tenable","rapid7","knowbe4",
+    "1password","bitwarden","keepersecurity","auth0","okta","yubico","keybase","signal","torproject","bitdefender",
+    "kaspersky","malwarebytes","norton","avast","avg","eset","trendmicro","sophos","mcafee","fsecure",
+  ],
+  Cloud: [
+    "amazonaws","microsoftazure","googlecloud","digitalocean","linode","vultr","hetzner","ovh","scaleway","cloudflare",
+    "fastly","akamai","netlify","vercel","render","railway","flydotio","heroku","kubernetes","docker","terraform",
+    "ansible","pulumi","hashicorp","nomad","consul","packer","oracle","ibm","alibabacloud","tencentcloud","upcloud",
+    "datadog","newrelic","grafana","prometheus","sentry","honeycomb","splunk","elastic","sumologic","pagerduty",
+    "opsgenie","incidentdotio","statuspage","betterstack","logtail","axiom","cloudinary","imgix","uploadcare",
+    "bunnynet","backblaze","wasabi","namecheap","godaddy","dnsimple","porkbun","gandi","fastmail","equinix",
+    "rackspace","linode","vultr","render","supabase","firebase","appwrite","railway","deno","bun",
+  ],
+  "Dev tools": [
+    "gitlab","bitbucket","gitea","sourcegraph","jetbrains","neovim","vim","postman","insomnia","hoppscotch",
+    "swagger","apollographql","graphql","prisma","supabase","firebase","appwrite","pocketbase","hasura","directus",
+    "strapi","sanity","contentful","storyblok","builderdotio","payloadcms","npm","yarn","pnpm","bun","deno",
+    "nodedotjs","react","vuedotjs","angular","svelte","nextdotjs","nuxt","astro","remix","vite","webpack","esbuild",
+    "rollup","babel","typescript","javascript","python","rust","go","java","kotlin","swift","php","ruby","laravel",
+    "rubyonrails","django","flask","fastapi","express","nestjs","spring","dotnet","elixir","haskell","jenkins",
+    "circleci","githubactions","travisci","drone","argocd","codecov","renovate","eslint","prettier","storybook",
+    "cypress","playwright","jest","vitest","mocha","selenium","puppeteer","gradle","maven","cmake","git",
+  ],
+  Data: [
+    "postgresql","mysql","mongodb","redis","clickhouse","snowflake","googlebigquery","databricks","cockroachlabs",
+    "planetscale","neon","turso","xata","fauna","timescale","influxdb","meilisearch","algolia","typesense",
+    "opensearch","neo4j","arangodb","apachecassandra","scylladb","singlestore","materialize","dbt","fivetran",
+    "airbyte","stitch","redpanda","apachekafka","apachespark","apachehadoop","apacheairflow","prefect","dagster",
+    "metabase","looker","tableau","powerbi","superset","mode","hex","monte-carlo","great-expectations","duckdb",
+    "sqlite","mariadb","couchbase","rethinkdb","orientdb","graphql","prisma",
+  ],
+  AI: [
+    "openai","anthropic","googlegemini","mistralai","cohere","groq","replicate","huggingface","togetherai",
+    "fireworksai","perplexity","stabilityai","midjourney","ollama","langchain","llamaindex","pinecone","weaviate",
+    "qdrant","chroma","milvus","modal","runpod","baseten","scaleai","weightsandbiases","comet","arize","langsmith",
+    "deepmind","cursor","codeium","tabnine","replit","vercel","elevenlabs","assemblyai","deepgram","runway",
+    "pika","suno","characterai","xai","nvidia","amd","intel","qualcomm","tesla","waymo","cruise","figure",
+    "openev","jina","voyageai","anyscale","vllm","lmsys","openrouter","requesty","portkey","litellm",
+  ],
+  Payments: [
+    "stripe","paypal","square","adyen","braintree","wise","revolut","monzo","plaid","ramp","brex","mercury",
+    "checkout","mollie","klarna","affirm","afterpay","razorpay","paystack","flutterwave","paddle","lemonsqueezy",
+    "chargebee","recurly","zuora","coinbase","binance","kraken","metamask","walletconnect","cryptodotcom","ripple",
+    "venmo","cashapp","tipalti","bill","expensify","xero","quickbooks","freshbooks","wave","nerdwallet","plaid",
+    "chime","sofi","robinhood","etrade","schwab","fidelity","vanguard","coinmarketcap","coingecko","opensea",
+    "uniswap","aave","compound","makerdao","ledger","trezor","bitpay","circle","block","squareup",
+  ],
+  Productivity: [
+    "notion","slack","zoom","dropbox","box","evernote","obsidian","coda","airtable","asana","trello","jira",
+    "confluence","clickup","mondaydotcom","basecamp","height","linear","wrike","smartsheet","miro","figma",
+    "framer","sketch","invision","canva","adobe","lucid","mural","discord","microsoftteams","gmail","outlook",
+    "googledrive","googleworkspace","googlecalendar","todoist","ticktick","roamresearch","logseq","craft","bear",
+    "ulysses","zotero","readwise","pocket","instapaper","caldotcom","calendly","savvycal","grammarly","otterai",
+    "descript","loom","veed","capcut","notion","miro","excalidraw","whimsical","diagramsdotnet","drawio","zeplin",
+    "abstract","invision","marvel","principle","protopie","framer",
+  ],
+  Communication: [
+    "resend","sendgrid","mailgun","postmark","mailchimp","convertkit","buttondown","mailerlite","klaviyo",
+    "customerio","hubspot","salesforce","pipedrive","intercom","drift","crisp","front","helpscout","zendesk",
+    "freshdesk","freshworks","zoho","zohomail","tutanota","mxroute","twilio","messagebird","vonage","telnyx",
+    "sinch","bandwidth","pusher","ably","pubnub","stream","sendbird","agora","daily","livekit","mux",
+    "discord","slack","telegram","whatsapp","signal","zoom","googlemeet","webex","gotomeeting","ringcentral",
+    "aircall","dialpad","grasshopper","otterai","fireflies","gong","chorus","outreach","salesloft","apollo",
+  ],
+  Analytics: [
+    "googleanalytics","posthog","mixpanel","amplitude","heap","segment","plausible","fathom","matomo","hotjar",
+    "fullstory","logrocket","smartlook","optimizely","launchdarkly","split","statsig","unleash","flagsmith",
+    "growthbook","countly","appsflyer","adjust","braze","iterable","onesignal","airship","moengage","clevertap",
+    "webengage","contentsquare","quantummetric","chartmogul","profitwell","baremetrics","googleoptimize","kissmetrics",
+    "crazyegg","clicky","simpleanalytics","umami","goatcounter","snowplow","rudderstack","mparticle","tealium",
+  ],
+  Commerce: [
+    "shopify","woocommerce","bigcommerce","magento","squarespace","wix","webflow","ghost","wordpress","drupal",
+    "joomla","medusa","saleor","gumroad","fastspring","printful","printify","yotpo","recharge","etsy","amazon",
+    "ebay","aliexpress","alibaba","flipkart","rakuten","mercadolibre","shopee","lazada","wish","temu","shein",
+    "wayfair","instacart","doordash","ubereats","deliveroo","justeat","grubhub","postmates","opentable","resy",
+    "stripe","paypal","square","klaviyo","mailchimp","intercom","zendesk","trustpilot","reviewsio","okendo",
+  ],
+  Consumer: [
+    "google","apple","microsoft","meta","facebook","instagram","whatsapp","threads","messenger","x","linkedin",
+    "telegram","discord","reddit","tiktok","snapchat","pinterest","tumblr","mastodon","bluesky","youtube",
+    "netflix","spotify","soundcloud","twitch","steam","epicgames","playstation","xbox","nintendo","riotgames",
+    "electronicarts","ubisoft","minecraft","roblox","patreon","substack","medium","devdotto","stackoverflow",
+    "hackernews","producthunt","dribbble","behance","uber","lyft","airbnb","bookingdotcom","tripadvisor",
+    "duolingo","strava","fitbit","garmin","peloton","headspace","calm","myfitnesspal","alltrails","komoot",
+    "wise","revolut","monzo","starlingbank","n26","chase","bankofamerica","wellsfargo","hsbc","barclays",
+    "visa","mastercard","americanexpress","discover","unionpay","paypal","venmo","cashapp","zelle",
+  ],
+};
+
+// Added after probing the bundled packs for exact slugs. Every entry here
+// resolves to a real mark.
+export const extras = {
+  Identity: ["atlassian","bitly","mattermost","zulip","threema","viber","wechat","kakaotalk","element","matrix","keybase"],
+  Security: ["mullvad","startpage","qwant","ecosia","adguard","ublockorigin","adblock","brave","duckduckgo","mozilla","firefox","safari","opera","vivaldi","googlechrome","browserstack","saucelabs","chromatic","percy"],
+  Cloud: ["egnyte","mega","tresorit","icloud","microsoft-onedrive"],
+  "Dev tools": ["codesandbox","stackblitz","codepen","jsfiddle","hashnode","tauri","flutter","dart","elm","clojure","scala","perl","lua","julia","ocaml","erlang","apachegroovy","zig","crystal","phoenixframework","preact","alpinejs","htmx","tailwindcss","bootstrap","mui","radixui","shadcnui","headlessui","zapier","n8n","retool","appsmith","budibase","redash"],
+  Data: ["apachesuperset"],
+  AI: ["openrouter","baseten"],
+  Payments: ["plaid"],
+  Productivity: ["monday","diagramsdotnet"],
+  Communication: ["brevo","mailjet","sparkpost","livechat","olark","grove"],
+  Analytics: [],
+  Commerce: ["medusa","trustpilot"],
+  Consumer: ["samsung","sony","lg","xiaomi","oneplus","oppo","vivo","motorola","nokia","ericsson","siemens","bosch","huawei","sega","konami","squareenix","activision","rockstargames","valve","cdprojekt","ea"],
+};

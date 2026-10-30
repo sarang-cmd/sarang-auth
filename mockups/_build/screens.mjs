@@ -1,19 +1,21 @@
 // Shared screen markup for the six directions.
 // Same content in every direction so the comparison is about design, not copy.
 
+import { brands } from "./brands-inline.mjs";
+
 export const items = [
-  { mono: "G", name: "Groq production", sub: "console.groq.com", type: "API key", env: "prod", when: "2 hours ago", short: "2h" },
-  { mono: "G", name: "Groq staging", sub: "console.groq.com", type: "API key", env: "staging", when: "6 days ago", short: "6d" },
-  { mono: "S", name: "Stripe secret key", sub: "dashboard.stripe.com", type: "API key", env: "live", when: "Yesterday", short: "1d" },
-  { mono: "G", name: "GitHub token, deploys", sub: "github.com", type: "Personal token", env: "prod", when: "4 days ago", short: "4d" },
-  { mono: "N", name: "Neon connection string", sub: "console.neon.tech", type: "Connection string", env: "prod", when: "3 hours ago", short: "3h" },
-  { mono: "C", name: "Cloudflare R2 token", sub: "dash.cloudflare.com", type: "API key", env: "prod", when: "Last week", short: "7d" },
-  { mono: "L", name: "Linear API key", sub: "linear.app", type: "API key", env: "prod", when: "5 days ago", short: "5d" },
-  { mono: "R", name: "Resend API key", sub: "resend.com", type: "API key", env: "prod", when: "2 weeks ago", short: "2w" },
-  { mono: "G", name: "GitHub recovery codes", sub: "github.com", type: "Backup codes", env: "", when: "Never used", short: "8 left" },
-  { mono: "A", name: "Google recovery codes", sub: "myaccount.google.com", type: "Backup codes", env: "", when: "Never used", short: "9 left" },
-  { mono: "G", name: "GitHub 2FA", sub: "github.com", type: "One-time code", env: "", when: "3 minutes ago", short: "now" },
-  { mono: "A", name: "AWS root 2FA", sub: "aws.amazon.com", type: "One-time code", env: "", when: "Yesterday", short: "1d" },
+  { brand: "groq", mono: "G", name: "Groq production", sub: "console.groq.com", type: "API key", env: "prod", when: "2 hours ago", short: "2h" },
+  { brand: "groq", mono: "G", name: "Groq staging", sub: "console.groq.com", type: "API key", env: "staging", when: "6 days ago", short: "6d" },
+  { brand: "stripe", mono: "S", name: "Stripe secret key", sub: "dashboard.stripe.com", type: "API key", env: "live", when: "Yesterday", short: "1d" },
+  { brand: "github", mono: "G", name: "GitHub token, deploys", sub: "github.com", type: "Personal token", env: "prod", when: "4 days ago", short: "4d" },
+  { brand: "neon", mono: "N", name: "Neon connection string", sub: "console.neon.tech", type: "Connection string", env: "prod", when: "3 hours ago", short: "3h" },
+  { brand: "cloudflare", mono: "C", name: "Cloudflare R2 token", sub: "dash.cloudflare.com", type: "API key", env: "prod", when: "Last week", short: "7d" },
+  { brand: "linear", mono: "L", name: "Linear API key", sub: "linear.app", type: "API key", env: "prod", when: "5 days ago", short: "5d" },
+  { brand: "resend", mono: "R", name: "Resend API key", sub: "resend.com", type: "API key", env: "prod", when: "2 weeks ago", short: "2w" },
+  { brand: "github", mono: "G", name: "GitHub recovery codes", sub: "github.com", type: "Backup codes", env: "", when: "Never used", short: "8 left" },
+  { brand: "google", mono: "A", name: "Google recovery codes", sub: "myaccount.google.com", type: "Backup codes", env: "", when: "Never used", short: "9 left" },
+  { brand: "github", mono: "G", name: "GitHub 2FA", sub: "github.com", type: "One-time code", env: "", when: "3 minutes ago", short: "now" },
+  { brand: "amazon", mono: "A", name: "AWS root 2FA", sub: "aws.amazon.com", type: "One-time code", env: "", when: "Yesterday", short: "1d" },
 ];
 
 const icons = {
@@ -39,10 +41,35 @@ export const mark = {
   6: `<svg viewBox="0 0 28 28" width="24" height="24" aria-hidden="true"><path d="M14 3.4c4.6 0 7.4 3.2 7.4 7.8v3.2H21a1 1 0 0 1 1 1v7.6a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-7.6a1 1 0 0 1 1-1h.6v-3.2c0-4.6 2.8-7.8 7.4-7.8Zm0 3.2c-2.6 0-4.2 1.8-4.2 4.6v3.2h8.4v-3.2c0-2.8-1.6-4.6-4.2-4.6Z" fill="currentColor"/><circle cx="14" cy="18.3" r="1.9" fill="var(--bg)"/></svg>`,
 };
 
+
+/* Brand marks. Each direction keeps its tile shape, the plate turns light so
+   the official brand colour stays legible on dark surfaces. */
+const colorHex = (hex) => `#${hex.replace("#", "")}`;
+
+function readable(hex) {
+  const h = hex.replace("#", "");
+  const v = h.length === 3 ? h.split("").map((c) => c + c).join("") : h;
+  const [r, g, b] = [0, 2, 4].map((i) => parseInt(v.slice(i, i + 2), 16));
+  const l = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+  if (l < 0.62) return colorHex(hex);
+  const mix = (c) => Math.round(c * 0.45);
+  return `#${[mix(r), mix(g), mix(b)].map((c) => c.toString(16).padStart(2, "0")).join("")}`;
+}
+
+export function brandMark(slug) {
+  const b = brands[slug];
+  if (!b) return `<span class="logo" data-plate="light"></span>`;
+  const [vw, , w, h] = b.viewBox.split(" ").map(Number);
+  const wide = w / h > 1.35;
+  const size = wide ? `width="23" height="${(23 * (h / w)).toFixed(1)}"` : `width="18" height="18"`;
+  const fill = b.palette || !b.color ? "" : ` fill="${readable(b.color)}"`;
+  return `<span class="logo${wide ? " logo--wide" : ""}" data-plate="${b.plate}"><svg viewBox="${b.viewBox}" ${size} aria-hidden="true" focusable="false"${fill}>${b.body}</svg></span>`;
+}
+
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
 
 function tile(item) {
-  return `<span class="tile" data-type="${item.type.split(" ")[0].toLowerCase()}"><b>${item.mono}</b><i>${item.type}</i></span>`;
+  return `<span class="tile" data-type="${item.type.split(" ")[0].toLowerCase()}">${brandMark(item.brand)}<i>${item.type}</i></span>`;
 }
 
 function tag(env) {
@@ -158,7 +185,7 @@ export function bar() {
           <span class="qkey">Tab</span>
         </div>
         <div class="qrow">
-          <span class="tile"><b>N</b><i>Neon</i></span>
+          <span class="tile">${brandMark("neon")}<i>Neon</i></span>
           <span class="rmain"><span class="rtitle">Neon connection string</span><span class="rsub">prod, 3 hours ago</span></span>
           <span class="qkey">Tab</span>
         </div>
@@ -404,17 +431,17 @@ export function desktop() {
         </div>
         <div class="palette-list">
           <div class="prow is-on">
-            <span class="tile"><b>G</b><i>Token</i></span>
+            <span class="tile">${brandMark("github")}<i>Token</i></span>
             <span class="rmain"><span class="rtitle">GitHub token, deploys</span><span class="rsub">github.com, personal token</span></span>
             <span class="pact">Copy</span>
           </div>
           <div class="prow">
-            <span class="tile"><b>G</b><i>2FA</i></span>
+            <span class="tile">${brandMark("github")}<i>2FA</i></span>
             <span class="rmain"><span class="rtitle">GitHub 2FA</span><span class="rsub">482 913</span></span>
             <span class="ptime"><span class="ptime-bar"></span>18s</span>
           </div>
           <div class="prow">
-            <span class="tile"><b>G</b><i>Codes</i></span>
+            <span class="tile">${brandMark("github")}<i>Codes</i></span>
             <span class="rmain"><span class="rtitle">GitHub recovery codes</span><span class="rsub">8 of 10 unused</span></span>
             <span class="pact">Open</span>
           </div>
