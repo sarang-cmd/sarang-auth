@@ -1,0 +1,108 @@
+HASP DEPLOYMENT GUIDE
+
+This guide covers two separate releases: the existing design preview and the future Hasp product. The repository currently contains mockups and a plan. The vault, authentication, sync, API, browser extension, desktop app and mobile app have not been implemented. Deploying this repository publishes a design preview, not a working secret manager.
+
+1. PUBLISH THE DESIGN PREVIEW
+
+Before you publish
+
+The preview contains sample vault data and company marks. Treat the sample values as demonstrations, not real credentials. Review the preview and brand usage before public distribution. Anyone with access to the deployment can view the files and sample content.
+
+The entry page is mockups/index.html. The brand library is mockups/brands.html. The implementation plan is PLAN.md at the repository root. The pages use local assets, so deploy the repository root rather than the mockups directory. This preserves relative links to PLAN.md. No database, API key or logo.dev token is required to view the preview.
+
+Deploy through the Vercel dashboard
+
+1. Sign in to Vercel and import the GitHub repository sarang-cmd/sarang-auth. Grant repository access if prompted.
+2. Select the branch and commit you intend to publish. The production branch should be main after you review the changes.
+3. Keep the project root set to the repository root. Select Other as the framework preset. Leave install and build commands empty. Set the output directory to the repository root, represented by a single period, if the project settings ask for an output directory.
+4. Deploy. Vercel provides a deployment URL. Open the URL followed by /mockups/index.html.
+5. Open /mockups/brands.html. Test search, a category filter, reset, and the links to the direction pages. Open the implementation plan link and check images and fonts on desktop and mobile.
+6. If deployment protection is enabled, sign in as an authorized viewer or adjust the project protection settings after reviewing your intended audience.
+
+A request to the deployment root is not the preview entry page. Use /mockups/index.html as the shared link. If you want a shorter URL later, add and test an explicit redirect in Vercel configuration.
+
+Deploy from a local checkout
+
+Install Node.js and Git, clone the repository, and check out the reviewed commit. From the repository root run:
+
+npx vercel
+
+Follow the prompts to sign in, link or create a project, and confirm the repository root and static project settings. The command creates a preview deployment. Once the preview passes review, run:
+
+npx vercel --prod
+
+Open the resulting URL with /mockups/index.html appended. Do not commit the local .vercel project directory or any credentials. Dashboard and CLI settings should agree on the project root and output directory.
+
+Custom domain
+
+Add the domain in the Vercel project domain settings. Follow the DNS records shown there in Cloudflare. Verify the domain and TLS certificate in Vercel before sharing the HTTPS URL. DNS propagation and certificate issuance take time. Avoid adding conflicting records, and follow Vercel's current Cloudflare proxy guidance if domain verification fails.
+
+Updating and rolling back
+
+With Git integration, a push to the configured production branch creates a new production deployment. Review a preview deployment before merging. To roll back, use the Vercel deployment dashboard to promote a known good deployment or revert the change in Git and redeploy. Confirm the entry page, brand library and images after rollback.
+
+The generated HTML and PNG files are already in the repository. A normal preview deployment does not need to regenerate them. If editing a generator, rebuild and review the generated files locally using the instructions in PLAN.md before deploying.
+
+2. PREPARE THE FUTURE PRODUCT
+
+The steps below describe the work and release gates required after the product is built. They are not commands for the current repository. Do not store real secrets in mockups, test fixtures, logs, analytics, issue reports or AI prompts.
+
+Accounts and environments
+
+Create separate development, staging and production environments. Use separate Neon databases and authentication configuration, Vercel projects or environment scopes, R2 buckets, email settings, analytics projects and Stripe modes as appropriate. Restrict administrative access, enable MFA and keep recovery access with named owners. Record the owner, billing contact, backup policy and incident contact for each service.
+
+Vercel and web application
+
+Implement the application and API before configuring a production build. Add a documented package manager lockfile, build, test, lint and migration commands. Connect the application repository to Vercel and configure environment values separately for development, preview and production. Mark sensitive values as secrets in the platform. Never expose server credentials through browser-accessible environment variables or client bundles.
+
+Use a staging domain and production domain with HTTPS. Configure security headers and the authentication callback and allowed origin lists for each environment. Test sign-in, sign-out, session expiry and rejected cross-origin requests. Avoid exposing secrets in error pages, server logs, build output and source maps.
+
+Neon database and authentication
+
+Create separate Neon projects or appropriately isolated databases for staging and production. Create least-privilege database roles and store connection strings in the matching Vercel environment. Configure Neon Auth according to its current documentation, including allowed origins and redirect URLs. Never assume a database connection alone implements application authorization.
+
+Review schema migrations before applying them. Test migrations and rollback or recovery procedures on staging first. Use backups appropriate to your recovery objectives, verify restoration into an isolated environment, and document the restore owner and procedure. Test ownership checks on every vault and item operation. Verify any row-level security policies with the real application database role, not an administrator role.
+
+Encryption and security
+
+Implement and independently review the cryptographic design before accepting real user secrets. Test key derivation, encryption, key wrapping, recovery, device revocation and sync conflicts on each supported platform. Confirm which metadata reaches the server and document the tradeoffs. Protect logs and crash reports from plaintext, tokens, one-time codes and recovery material. Obtain an external security review and resolve critical findings before launch.
+
+Cloudflare R2
+
+Create a separate bucket and scoped credentials for each environment. Keep buckets private. Define object retention, deletion and access rules based on the implemented import and export flows. Test signed URL expiry, upload validation and cleanup. Do not assume an object was deleted until the cleanup process and monitoring have been verified.
+
+Resend, PostHog, Stripe and 9Router
+
+Verify sending domains and configure SPF, DKIM and any other records requested by Resend. Test transactional email in staging. Configure PostHog only after reviewing consent and data minimization. Never send vault contents, credentials or recovery material as events.
+
+Use Stripe test mode in staging and keep production keys separate. Verify webhook signatures, handle retries and duplicate events, and restrict the webhook endpoint. Enable live billing only after pricing, tax, legal and operational reviews.
+
+Keep 9Router and model provider credentials on the server. AI labeling must be opt-in. Review the actual data flow before sending any material to a hosted provider. Redaction is not a guarantee that all secrets are removed. Provide a non-AI path and test the consent and failure states.
+
+3. RELEASE CLIENTS
+
+Browser extension
+
+Implement and test each target browser build. Request the minimum permissions and host access needed. Check keyboard navigation, locked state, explicit fill actions and behavior on untrusted pages. Follow each store's current signing, privacy, disclosure and review requirements. Publish a staged release where available, monitor errors without collecting secrets, and retain the previous package for rollback.
+
+Desktop application
+
+Build installers on supported build hosts using a documented and reproducible release process. Sign Windows and macOS builds with protected signing credentials. Complete Apple notarization where required. Test installation, upgrade, uninstall, offline access and update verification. Prepare and submit the MSIX package separately for Microsoft Store review. Never distribute unsigned updates or embed signing keys in the repository.
+
+Mobile application
+
+Create the Android and Apple developer accounts and app identifiers. Configure signing, push capabilities only if needed, and separate staging and production endpoints. Test biometric unlock, secure storage, offline access, recovery and device loss. Submit builds and privacy disclosures through the relevant stores. Use staged rollout controls and monitor crashes without collecting vault data.
+
+4. LAUNCH CHECKLIST
+
+Confirm the product is implemented and the release commit is reviewed.
+Confirm staging and production isolation, access controls and MFA.
+Run automated tests, dependency checks, secret scanning and accessibility checks.
+Complete the independent security review and test recovery and database restoration.
+Verify TLS, domains, email, authentication redirects, backups and monitoring.
+Set cost alerts and service limits. Assign an incident owner and document escalation.
+Review privacy, terms, store disclosures and brand usage with the appropriate owners.
+Run an end-to-end test with synthetic data across every release surface.
+Release gradually, watch for failures and keep a tested rollback path.
+
+For design details and proposed architecture, see PLAN.md. Provider interfaces and requirements change. Check the current documentation for each service before production setup.
